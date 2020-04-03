@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "c15fd2bf-ec9c-4c9f-a0b9-611e6187f3c4",
+		"name": "STREAKS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/habits",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/habits",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"habits"
+					]
+				},
+				"description": "Retrieve all habits"
+			},
+			"response": []
+		},
+		{
+			"name": "/habit/<id>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/habit/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"habit",
+						"1"
+					]
+				},
+				"description": "Retrieve information about a habit with a specific id"
+			},
+			"response": []
+		},
+		{
+			"name": "/habit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"name\": \"Read a book\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/habit",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"habit"
+					]
+				},
+				"description": "Create a habit"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

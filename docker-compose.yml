@@ -1,0 +1,10 @@
+version: "3"
+services:
+  db:
+    image: postgres:12.2
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: security
+      POSTGRES_DB: streaks
+    ports:
+      - "5432:5432"
