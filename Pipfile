@@ -5,10 +5,13 @@ verify_ssl = true
 
 [dev-packages]
 bandit = "*"
+pytest = "*"
+requests = "*"
 
 [packages]
 fastapi = "*"
 uvicorn = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"
