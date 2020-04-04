@@ -3,10 +3,10 @@ from typing import List
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-import schemas, models, crud
-from database import SessionLocal, engine
+import schemas, crud
+from database import SessionLocal, engine, Base
 
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
@@ -29,3 +29,7 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 def get_users(db: Session = Depends(get_db)):
     users = crud.get_users(db)
     return users
+
+@app.delete("/user/{name}", response_model=schemas.User)
+def delete_user(name: str, db: Session = Depends(get_db)):
+    return crud.delete_user(db, name)
