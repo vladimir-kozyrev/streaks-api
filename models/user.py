@@ -8,6 +8,7 @@ class UserModel(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
+    email = Column(String)
     password = Column(String)
 
     habits = relationship("HabitModel", back_populates="user")
