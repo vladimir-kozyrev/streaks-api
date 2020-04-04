@@ -7,4 +7,6 @@ install:
 
 script:
   - pipenv run postgresql
+  - docker ps
+  - sleep 5
   - pipenv run tests
