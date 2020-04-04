@@ -8,6 +8,7 @@ bandit = "*"
 pytest = "*"
 requests = "*"
 rope = "*"
+pytest-ordering = "*"
 
 [packages]
 fastapi = "*"
@@ -17,7 +18,7 @@ psycopg2-binary = "*"
 
 [scripts]
 postgresql = "docker-compose up -d"
-tests = "pytest tests.py"
+tests = "pytest tests/ -vv"
 
 [requires]
 python_version = "3.7"
