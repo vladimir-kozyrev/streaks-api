@@ -3,15 +3,14 @@ from pydantic import BaseModel
 
 class HabitBase(BaseModel):
     name: str
-
+    streak: int = 0
 
 class HabitCreateSchema(HabitBase):
-    pass
+    user_id: int
 
 
 class HabitSchema(HabitBase):
     id: int
-    user_id: int
 
     class Config:
         orm_mode = True

@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 
 import crud
 from schemas.user import UserSchema, UserCreateSchema
+from schemas.habit import HabitSchema, HabitCreateSchema
 from database import SessionLocal, engine, Base
 
 Base.metadata.create_all(bind=engine)
@@ -23,6 +24,12 @@ def get_db():
 def get_users(db: Session = Depends(get_db)):
     users = crud.get_users(db)
     return users
+
+
+@app.get("/v1/user/{email}", response_model=UserSchema)
+def get_user(email: str, db: Session = Depends(get_db)):
+    db_user = crud.get_user_by_email(db, email=email)
+    return db_user
 
 
 @app.post("/v1/users", response_model=UserSchema)
@@ -47,3 +54,12 @@ def delete_user(email: str, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=400, detail="User does not exist.")
     return crud.delete_user(db, email)
+
+
+@app.post("/v1/habits", response_model=HabitSchema)
+def create_habit(habit: HabitCreateSchema, db: Session = Depends(get_db)):
+    user_habits = crud.get_habits(db, habit.user_id)
+    for user_habit in user_habits:
+        if user_habit.name == habit.name:
+            raise HTTPException(status_code=400, detail="A habit with this name already exists.")
+    return crud.create_habit(db, habit)
