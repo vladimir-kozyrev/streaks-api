@@ -15,5 +15,8 @@ uvicorn = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
 
+[scripts]
+tests = "pytest tests.py"
+
 [requires]
 python_version = "3.7"

@@ -21,3 +21,4 @@ $ uvicorn main:app --reload
 - Initialize the database and apply migrations using [Alembic](https://alembic.sqlalchemy.org/en/latest/tutorial.html)
 - Improve directory structure
 - Cover all API calls with tests
+- Hash user passwords
