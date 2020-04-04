@@ -3,6 +3,6 @@ from main import app
 
 client = TestClient(app)
 
-def test_read_item():
-    response = client.get("/habits")
+def test_get_users():
+    response = client.get("/users")
     assert response.status_code == 200
