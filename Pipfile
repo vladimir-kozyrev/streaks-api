@@ -16,6 +16,7 @@ sqlalchemy = "*"
 psycopg2-binary = "*"
 
 [scripts]
+postgresql = "docker-compose up -d"
 tests = "pytest tests.py"
 
 [requires]

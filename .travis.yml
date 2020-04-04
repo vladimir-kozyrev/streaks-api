@@ -6,4 +6,5 @@ install:
   - pipenv install --dev
 
 script:
+  - pipenv run postgresql
   - pipenv run tests
