@@ -7,4 +7,5 @@ install:
 
 script:
   - pipenv run postgresql
+  - sleep 3
   - pipenv run tests

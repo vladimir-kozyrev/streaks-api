@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/vladimir-kozyrev/streaks-api.svg?branch=master)](https://travis-ci.com/vladimir-kozyrev/streaks-api)
+
 # STREAKS API
 
 An impression of what [STREAKS](https://streaksapp.com/) API could look like.
