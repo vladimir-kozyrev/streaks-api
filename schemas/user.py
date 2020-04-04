@@ -4,6 +4,7 @@ from .habit import HabitSchema
 
 class UserBase(BaseModel):
     name: str
+    email: str
 
 
 class UserCreateSchema(UserBase):
@@ -12,7 +13,7 @@ class UserCreateSchema(UserBase):
 
 class UserSchema(UserBase):
     id: int
-    items: List[HabitSchema] = []
+    habits: List[HabitSchema] = []
 
     class Config:
         orm_mode = True
