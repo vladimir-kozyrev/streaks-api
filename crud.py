@@ -35,11 +35,11 @@ def delete_user(db: Session, email: str):
     db.commit()
     return db_user
 
-def get_habits(db: Session, habit_id: int):
-    return db.query(HabitModel).filter(HabitModel.id == habit_id).all()
+def get_habits(db: Session, user_id: int):
+    return db.query(HabitModel).filter(HabitModel.user_id == user_id).all()
 
-def create_habit(db: Session, habit: HabitCreateSchema, user_id: int):
-    db_habit = HabitModel(**habit.dict(), user_id=user_id)
+def create_habit(db: Session, habit: HabitCreateSchema):
+    db_habit = HabitModel(**habit.dict())
     db.add(db_habit)
     db.commit()
     db.refresh(db_habit)

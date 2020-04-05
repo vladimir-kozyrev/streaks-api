@@ -8,6 +8,7 @@ class HabitModel(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
+    streak = Column(Integer)
     user_id = Column(Integer, ForeignKey("users.id"))
 
     user = relationship("UserModel", back_populates="habits")

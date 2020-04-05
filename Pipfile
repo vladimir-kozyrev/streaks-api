@@ -8,16 +8,19 @@ bandit = "*"
 pytest = "*"
 requests = "*"
 rope = "*"
+pytest-ordering = "*"
 
 [packages]
 fastapi = "*"
 uvicorn = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
+pyjwt = "*"
+passlib = "*"
 
 [scripts]
 postgresql = "docker-compose up -d"
-tests = "pytest tests.py"
+tests = "pytest tests/ -vv"
 
 [requires]
 python_version = "3.7"

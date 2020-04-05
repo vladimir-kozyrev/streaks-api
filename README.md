@@ -2,7 +2,7 @@
 
 # STREAKS API
 
-An impression of what [STREAKS](https://streaksapp.com/) API could look like.
+An impression of what a simplified version of [STREAKS](https://streaksapp.com/) API could look like.
 This is a practice project that will help me learn FastAPI.
 
 ## Installation
@@ -22,5 +22,4 @@ $ uvicorn main:app --reload
 
 - Initialize the database and apply migrations using [Alembic](https://alembic.sqlalchemy.org/en/latest/tutorial.html)
 - Improve directory structure
-- Cover all API calls with tests
 - Hash user passwords

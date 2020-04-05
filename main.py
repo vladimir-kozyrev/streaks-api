@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 
 import crud
 from schemas.user import UserSchema, UserCreateSchema
+from schemas.habit import HabitSchema, HabitCreateSchema
 from database import SessionLocal, engine, Base
 
 Base.metadata.create_all(bind=engine)
@@ -25,6 +26,12 @@ def get_users(db: Session = Depends(get_db)):
     return users
 
 
+@app.get("/v1/users/{email}", response_model=UserSchema)
+def get_user(email: str, db: Session = Depends(get_db)):
+    db_user = crud.get_user_by_email(db, email=email)
+    return db_user
+
+
 @app.post("/v1/users", response_model=UserSchema)
 def create_user(user: UserCreateSchema, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=user.email)
@@ -41,7 +48,7 @@ def update_user(user: UserCreateSchema, db: Session = Depends(get_db)):
     return crud.create_user(db=db, user=user)
 
 
-@app.delete("/v1/user/{email}", response_model=UserSchema)
+@app.delete("/v1/users/{email}", response_model=UserSchema)
 def delete_user(email: str, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=email)
     if db_user is None:
