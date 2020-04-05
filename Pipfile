@@ -15,6 +15,8 @@ fastapi = "*"
 uvicorn = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
+pyjwt = "*"
+passlib = "*"
 
 [scripts]
 postgresql = "docker-compose up -d"

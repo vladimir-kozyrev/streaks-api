@@ -20,7 +20,7 @@ def test_create_user():
     assert response.status_code == 200
 
 def test_get_user():
-    response = client.get(f"/v1/user/{test_user_email}")
+    response = client.get(f"/v1/users/{test_user_email}")
     assert response.status_code == 200
 
 def test_get_users():
@@ -53,6 +53,6 @@ def test_create_user_with_same_name():
 @pytest.mark.run(order=-1)
 def test_delete_user():
     response = client.delete(
-        f"/v1/user/{test_user_email}"
+        f"/v1/users/{test_user_email}"
     )
     assert response.status_code == 200
